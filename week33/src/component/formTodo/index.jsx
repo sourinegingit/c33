@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import styled from "styled-components";
 import axios from 'axios';
+import { Store } from '../../context';
+import { getTodos } from '../../App';
 
 
 const FORM= styled.form`
@@ -24,13 +26,22 @@ border:none;
 `
 
 const TODOFORM=()=>{
+    const {inputValue,setInputValue,setTodo}=useContext(Store);
     const handleCreateTodo=(e)=>{
         e.preventDefault();
-        axios.post('')
+        axios.post('http://localhost:3001/todos',{
+            "id": Math.random()*10,
+            "title": inputValue,
+            "check": "false"
+        }).then(()=>{
+            getTodos(setTodo)
+        })
+       
     }
+    // console.log(task)
     return(
         <FORM>
-            <INPUT type='text' placeholder='write task' />
+            <INPUT type='text' placeholder='write task' value={inputValue} onChange={(e)=>setInputValue(e.target.value)}/>
             <BUTTON onClick={(e)=>handleCreateTodo(e)}>➕</BUTTON>
         </FORM>
     )
