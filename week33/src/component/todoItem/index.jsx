@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { BsCheckSquareFill } from "react-icons/bs";
 import { BsFillTrashFill } from "react-icons/bs";
+import {RxCross1} from 'react-icons/rx'
 const P = styled.p`
 fontsize:1.5rem;
 background:white;
@@ -26,13 +27,30 @@ padding:2%;
  gap:4%
 
  `
-function TodoItem({item}) {
+function TodoItem({item,onCheckHandler,onDeleteHandler}) {
   return (
     <Div>
       <P>{item.title}</P>
       <DIV>
-        <BsCheckSquareFill style={{ background: "#" }}></BsCheckSquareFill>
-        <BsFillTrashFill style={{ background: "#ffffff" }}></BsFillTrashFill>
+        { !item.check ?
+          (<BsCheckSquareFill style={{ background: '#fffff' }}
+        onClick={()=>{onCheckHandler(item)}}>
+          
+         </BsCheckSquareFill>):
+         (
+        <RxCross1 style={{ background: "#ggggg" }} 
+        onClick={()=>{onCheckHandler(item)}}
+        />
+
+       
+         )}
+
+         
+
+        <BsFillTrashFill style={{ background: "#ffffff" }}
+         onClick={()=>onDeleteHandler(item)}></BsFillTrashFill>
+
+         
       </DIV>
     </Div>
   );

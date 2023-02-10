@@ -32,16 +32,19 @@ const TODOFORM=()=>{
         axios.post('http://localhost:3001/todos',{
             "id": Math.random()*10,
             "title": inputValue,
-            "check": "false"
+            "check": false
         }).then(()=>{
             getTodos(setTodo)
+            setInputValue('')
         })
        
     }
     // console.log(task)
     return(
         <FORM>
-            <INPUT type='text' placeholder='write task' value={inputValue} onChange={(e)=>setInputValue(e.target.value)}/>
+            <INPUT type='text' placeholder='write task' 
+            value={inputValue}
+             onChange={(e)=>setInputValue(e.target.value)}/>
             <BUTTON onClick={(e)=>handleCreateTodo(e)}>➕</BUTTON>
         </FORM>
     )

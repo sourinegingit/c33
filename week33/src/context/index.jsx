@@ -5,8 +5,8 @@ export const Store=React.createContext([])
 
 
 
-// const ContextProvider=({children})=>{
 
+// const ContextProvider=({children})=>{
 // return(
 //     <store.Provider>{children}</store.Provider>
 

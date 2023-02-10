@@ -6,9 +6,11 @@ width:50%
 
 `
 
-function Filter() {
+function Filter({onFilterHandler}) {
+
   return (
-    <SELECT >
+    <SELECT onChange={(e)=>onFilterHandler(e.target.value)}>
+        
         <option value='ALL'>ALL</option>
         <option value='DONE'>DONE</option>
         <option value='ON GOING'>ON GOING</option>
