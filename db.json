@@ -1,0 +1,30 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "check": "false"
+    },
+    {
+      "id": 2,
+      "title": "json-server",
+      "check": "false"
+    },
+    {
+      "id": 3,
+      "title": "json-server",
+      "check": "false"
+    },
+    {
+      "id": 4,
+      "title": "json-server",
+      "check": "false"
+    },
+    {
+      "id": 5,
+      "title": "json-server",
+      "check": "false"
+    }
+  ]
+  
+}
